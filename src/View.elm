@@ -1,8 +1,9 @@
 module View exposing (view)
 
-import Html exposing (Attribute, Html, div, h1, text)
+import Html exposing (Attribute, Html, button, div, h1, text)
 import Html.Attributes exposing (style)
-import Messages exposing (Msg)
+import Html.Events exposing (onClick)
+import Messages exposing (Msg(..))
 import Models exposing (Model)
 
 
@@ -40,8 +41,23 @@ view : Model -> Html Msg
 view model =
     div []
         [ h1 [] [ text model.msg ]
-        , div [ makeStyle ]
-            [ div [ modalStyle ]
-                [ text "Hey look, a modal!" ]
-            ]
+        , button [ onClick ShowModal ]
+            [ text "Show modal" ]
+        , modalView model
         ]
+
+
+modalView : Model -> Html Msg
+modalView model =
+    case model.isModalOpen of
+        True ->
+            div [ makeStyle ]
+                [ div [ modalStyle ]
+                    [ text "Hey look, a modal!"
+                    , button [ onClick HideModal ]
+                        [ text "Ok, I got it!" ]
+                    ]
+                ]
+
+        False ->
+            div [] []
