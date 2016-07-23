@@ -55,7 +55,7 @@ modalBodyStyle =
 
 view : Model -> Html Msg
 view model =
-    case model.isModalOpen of
+    case model.isConfirmationRequested of
         True ->
             div [ makeStyle ]
                 [ div [ modalStyle ]
@@ -66,9 +66,9 @@ view model =
                             [ text "This action cannot be reverted. Once confirmed we will all meet our maker, whoever she is." ]
                         ]
                     , div []
-                        [ button [ onClick HideModal ]
+                        [ button [ onClick AbortWorldDestruction ]
                             [ text "Oh hell no!" ]
-                        , button [ onClick HideModal ]
+                        , button [ onClick ConfirmWorldDestruction ]
                             [ text "Yes, blow it up!" ]
                         ]
                     ]

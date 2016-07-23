@@ -32,6 +32,6 @@ view : Html Msg
 view =
     div [ mainBodyStyle ]
         [ h2 [] [ text "What would you like to do today?" ]
-        , button [ outlineButtonStyle, onClick ShowModal ]
+        , button [ outlineButtonStyle, onClick RequestConfirmation ]
             [ text "Blow up the world!" ]
         ]
