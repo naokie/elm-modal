@@ -1,12 +1,13 @@
 {
   "name": "elm-modal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "elm:install": "elm package install",
     "elm:make": "elm make ./src/Main.elm --output=./dist/app.html"
   },
-  "dependencies": {
-    "elm": "^0.17.0"
+  "dependencies": {},
+  "devDependencies": {
+    "elm": "^0.18.0"
   }
 }
