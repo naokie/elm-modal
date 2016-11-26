@@ -1,13 +1,13 @@
 module Main exposing (..)
 
-import Html.App as Html
+import Html
 import Messages exposing (Msg)
 import Models exposing (Model, model)
 import Update exposing (update)
 import View exposing (view)
 
 
-main : Program Never
+main : Program Never Model Msg
 main =
     Html.program
         { init = init

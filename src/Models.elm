@@ -1,14 +1,24 @@
-module Models exposing (Model, model)
+module Models exposing (..)
+
+import Tacos.Models as Tacos
+
+
+type RequestedAction
+    = OrderTacos
+    | DestroyWorld
+    | DestroyCountry
 
 
 type alias Model =
-    { isConfirmationRequested : Bool
-    , isWorldDestroyed : Bool
+    { isWorldDestroyed : Bool
+    , tacos : Tacos.Model
+    , requestedAction : Maybe RequestedAction
     }
 
 
 model : Model
 model =
-    { isConfirmationRequested = False
-    , isWorldDestroyed = False
+    { isWorldDestroyed = False
+    , tacos = Tacos.model
+    , requestedAction = Nothing
     }

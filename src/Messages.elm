@@ -1,8 +1,8 @@
 module Messages exposing (..)
 
+import Tacos.Messages as Tacos
+
 
 type Msg
     = NoOp
-    | RequestConfirmation
-    | ConfirmWorldDestruction
-    | AbortWorldDestruction
+    | UpdateTacos Tacos.Msg

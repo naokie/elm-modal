@@ -1,9 +1,11 @@
 module View.Main exposing (view)
 
-import Html exposing (Attribute, Html, button, div, h2, text)
+import Html exposing (Attribute, Html, button, div, h2, li, text, ul)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Messages exposing (Msg(..))
+import Models exposing (model)
+import Tacos.View as Tacos
 
 
 mainBodyStyle : Attribute msg
@@ -32,6 +34,8 @@ view : Html Msg
 view =
     div [ mainBodyStyle ]
         [ h2 [] [ text "What would you like to do today?" ]
-        , button [ outlineButtonStyle, onClick RequestConfirmation ]
-            [ text "Blow up the world!" ]
+        , ul []
+            [ li []
+                [ Html.map UpdateTacos (Tacos.view model.tacos) ]
+            ]
         ]
